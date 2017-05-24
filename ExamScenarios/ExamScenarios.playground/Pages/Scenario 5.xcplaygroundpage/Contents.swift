@@ -25,27 +25,45 @@ let canvas = Canvas(width: 400, height: 600)
 
 // Your code below...
 
-func drawarrow (x: Float, y: Float) {
+canvas.fillColor = Color.black
+canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 400, height: 600)
+
+func drawarrow (x: Int, y: Int) {
+    canvas.translate(byX: x, byY: y)
     canvas.drawShapesWithBorders = false
-    canvas.fillColor = Color(hue: 308, saturation: 96, brightness: 56, alpha: 100)
-    canvas.drawRectangle(centreX: x, centreY: y, width: 14, height: 40)
-    canvas.saveState()
-    canvas.translate(byX: 13, byY: -13)
-    canvas.drawRectangle(centreX: x, centreY: y, width: 40, height: 14)
-    canvas.restoreState()
-//   canvas.rotate(by: -45)
-//    canvas.drawRectangle(centreX: x - 8, centreY: y + 20, width: 16, height: 60)
-//    canvas.restoreState()
+    
+    canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 15, height: 45)
+    canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 45, height: 15)
+    
+    canvas.rotate(by: 45)
+     canvas.drawRectangle(bottomLeftX: 20, bottomLeftY: -8, width: 55, height: 15)
+    canvas.rotate(by: -45)
+    
+    canvas.translate(byX: -x, byY: -y)
 }
-drawarrow(x: 0, y: 0)
 
-//for _ in 1...6{
-//    let x=
-//    drawarrow(x: 1, y: 1)
-//    
-//}
+for x in stride(from: 0, to: 400, by: 68){
+    for y in stride(from: 0, to: 400, by: 68){
+        
+    //make white
+        if x == y {
+            canvas.fillColor = Color.white
+            drawarrow(x: x, y: y)
+    //make purple
+    }else{
+        canvas.fillColor = Color.init(hue: 313, saturation: 77, brightness: 65, alpha: 100)
+        drawarrow(x: x, y: y)
+        }
+    
+    }
+}
 
+canvas.lineColor = Color.white
+canvas.defaultLineWidth = 2
+canvas.drawLine(fromX: 0, fromY: 440, toX: 400, toY: 440)
 
+canvas.textColor = Color.white
+canvas.drawText(message: "the velvet underground", size: 30, x: 10, y: 400, kerning: -2.0)
 //: ## Template code
 //: The code below is necessary to see the result of your work in the Assistant Editor at right. Please do not remove.
 PlaygroundPage.current.liveView = canvas.imageView
