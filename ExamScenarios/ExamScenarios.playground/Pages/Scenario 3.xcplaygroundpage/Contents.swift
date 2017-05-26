@@ -21,9 +21,42 @@ import PlaygroundSupport
 //: ![timeline](timeline.png "Timeline")
 //: ## Your code starts here
 // Create a new canvas
-let canvas = Canvas(width: 400, height: 600)
+let canvas = Canvas(width: 395, height: 600)
 
+
+
+canvas.drawShapesWithBorders = false
+
+//orange background
+canvas.fillColor = Color(hue: 10, saturation: 94, brightness: 93, alpha: 100)
+canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 395, height: 600)
+//yellow square
+canvas.fillColor = Color(hue: 47, saturation: 96, brightness: 100, alpha: 100)
+canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 204, width: 395, height: 396)
+
+//makes tthe gray triangle in the top corner
+canvas.fillColor = Color(hue: 78, saturation: 6, brightness: 85, alpha: 100)
+var triangle : [NSPoint] = []
+triangle.append(NSPoint(x: 0, y: 204))
+triangle.append(NSPoint(x: 0, y: 600))
+triangle.append(NSPoint(x: 395, y: 600))
+canvas.drawCustomShape(with: triangle)
+//makes orange triangles and loops them into 
+for y in stride (from: 600, to: 225, by: -44){
+    for x in stride(from: 0, to: 395, by: 44){
+        canvas.fillColor = Color(hue: 10, saturation: 94, brightness: 93, alpha: 100)
+        var points : [NSPoint] = []
+        points.append(NSPoint(x: x, y: y))
+        points.append(NSPoint(x: x + 44, y: y))
+        points.append(NSPoint(x: x, y: y - 44))
+        canvas.drawCustomShape(with: points)
+        
+    }
+}
 
 //: ## Template code
 //: The code below is necessary to see the result of your work in the Assistant Editor at right. Please do not remove.
 PlaygroundPage.current.liveView = canvas.imageView
+
+
+

@@ -32,6 +32,31 @@ let black = Color(hue: 0, saturation: 0, brightness: 0, alpha: 100)
 
 // Your code below...
 
+canvas.drawShapesWithBorders = false
+
+
+
+for x in stride(from: 0, to: 500, by: 100){
+    for y in stride(from: -25, to: 475, by: 100){
+        
+        if y - x == -25 || x + y == 375 && x > 200{
+            canvas.fillColor = Color(hue: 37, saturation: 93, brightness: 98, alpha: 100)
+        } else {
+            canvas.fillColor = Color(hue: 326, saturation: 99, brightness: 93, alpha: 100)
+        }
+        canvas.drawRoundedRectangle(centreX: x, centreY: y, width: 97, height: 97, borderWidth: 20, xRadius: 20, yRadius: 20)
+        
+    }
+}
+for x in stride(from: -50, to: 450, by: 100){
+    for y in stride(from: 50, to: 450, by: 100){
+        
+        canvas.fillColor = Color(hue: 240, saturation: 80, brightness: 50, alpha: 50)
+        
+        canvas.drawRoundedRectangle(centreX: x, centreY: y, width: 97, height: 97, borderWidth: 20, xRadius: 20, yRadius: 20)
+    }
+}
+
 //: ## Template code
 //: The code below is necessary to see the result of your work in the Assistant Editor at right. Please do not remove.
 PlaygroundPage.current.liveView = canvas.imageView

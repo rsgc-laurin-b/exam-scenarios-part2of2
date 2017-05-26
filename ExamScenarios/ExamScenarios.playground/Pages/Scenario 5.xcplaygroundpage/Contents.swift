@@ -28,42 +28,37 @@ let canvas = Canvas(width: 400, height: 600)
 canvas.fillColor = Color.black
 canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 400, height: 600)
 
-func drawarrow (x: Int, y: Int) {
-    canvas.translate(byX: x, byY: y)
+func drawarrow(X: Int, Y: Int){
+    canvas.translate(byX: X, byY: Y)
     canvas.drawShapesWithBorders = false
-    
     canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 15, height: 45)
     canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 45, height: 15)
-    
     canvas.rotate(by: 45)
-     canvas.drawRectangle(bottomLeftX: 20, bottomLeftY: -8, width: 55, height: 15)
+    canvas.drawRectangle(bottomLeftX: 20, bottomLeftY: -8, width: 55, height: 15)
     canvas.rotate(by: -45)
-    
-    canvas.translate(byX: -x, byY: -y)
+    canvas.translate(byX: -X, byY: -Y)
 }
 
 for x in stride(from: 0, to: 400, by: 68){
     for y in stride(from: 0, to: 400, by: 68){
         
-    //make white
-        if x == y {
+        if x == y{
             canvas.fillColor = Color.white
-            drawarrow(x: x, y: y)
-    //make purple
-    }else{
-        canvas.fillColor = Color.init(hue: 313, saturation: 77, brightness: 65, alpha: 100)
-        drawarrow(x: x, y: y)
+            drawarrow(X: x, Y: y)
+        } else {
+            canvas.fillColor = Color(hue: 313, saturation: 77, brightness: 65, alpha: 100)
+            drawarrow(X: x, Y: y)
         }
-    
+        
     }
 }
 
 canvas.lineColor = Color.white
-canvas.defaultLineWidth = 2
-canvas.drawLine(fromX: 0, fromY: 440, toX: 400, toY: 440)
 
-canvas.textColor = Color.white
-canvas.drawText(message: "the velvet underground", size: 30, x: 10, y: 400, kerning: -2.0)
+
+
+
+
 //: ## Template code
 //: The code below is necessary to see the result of your work in the Assistant Editor at right. Please do not remove.
 PlaygroundPage.current.liveView = canvas.imageView
