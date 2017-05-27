@@ -54,10 +54,39 @@ for x in stride(from: 0, to: 400, by: 68){
 }
 
 canvas.lineColor = Color.white
+canvas.defaultLineWidth = 2
+//lower white line
+canvas.drawLine(fromX: 0, fromY: 450, toX: 400, toY: 450)
+//upper white line
+canvas.drawLine(fromX: 0, fromY: 570, toX: 400, toY: 570)
 
-
-
-
+//text
+func text (){
+    let howbig = 9
+    let yValUpper = 550
+    let kerndog = Float(-0.5)
+   
+    canvas.textColor = Color.white
+    canvas.drawText(message: "the velvet underground", size: 30, x: 10, y: 410, kerning: -2.5)
+    
+    
+    
+    canvas.drawText(message: "first appearence in london", size: howbig, x: 10, y: yValUpper, kerning: kerndog)
+    
+     canvas.drawText(message: "with spring and pollyfloskin", size: howbig, x: 130, y: yValUpper, kerning: kerndog)
+    
+     canvas.drawText(message: "thursday", size: howbig, x: 280, y: yValUpper, kerning: kerndog)
+    
+    
+     let yValLower = 540
+    
+     canvas.drawText(message: "the london college of printing", size: howbig, x: 10, y: yValLower, kerning: kerndog)
+    
+    canvas.drawText(message: "plus the great western light show", size: howbig, x: 130, y: yValLower, kerning: kerndog)
+    
+    canvas.drawText(message: "october 14 1971/ 8pm", size: howbig, x: 280, y: yValLower, kerning: kerndog)
+}
+text()
 
 //: ## Template code
 //: The code below is necessary to see the result of your work in the Assistant Editor at right. Please do not remove.

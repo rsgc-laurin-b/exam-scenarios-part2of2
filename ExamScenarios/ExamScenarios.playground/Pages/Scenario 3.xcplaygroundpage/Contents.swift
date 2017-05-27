@@ -41,7 +41,7 @@ triangle.append(NSPoint(x: 0, y: 204))
 triangle.append(NSPoint(x: 0, y: 600))
 triangle.append(NSPoint(x: 395, y: 600))
 canvas.drawCustomShape(with: triangle)
-//makes orange triangles and loops them into 
+//makes orange triangles and loops them into a grid
 for y in stride (from: 600, to: 225, by: -44){
     for x in stride(from: 0, to: 395, by: 44){
         canvas.fillColor = Color(hue: 10, saturation: 94, brightness: 93, alpha: 100)
@@ -54,9 +54,19 @@ for y in stride (from: 600, to: 225, by: -44){
     }
 }
 
+//text
+
+func text (){
+    
+    let upperYVal = 50
+    let lowerYVal = 30
+    let kerndawg = 
+    
+    
+}
+
 //: ## Template code
 //: The code below is necessary to see the result of your work in the Assistant Editor at right. Please do not remove.
 PlaygroundPage.current.liveView = canvas.imageView
-
 
 
